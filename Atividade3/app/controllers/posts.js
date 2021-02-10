@@ -2,6 +2,7 @@ const Post = require("../models/posts");
 const Comentario = require("../models/comentarios");
 const viewPost = require("../views/posts");
 const viewComentario = require("../views/comentarios");
+const jwt = require("jsonwebtoken");
 
 module.exports.listarPosts = function(req, res){
     let promisse = Post.find();
@@ -23,8 +24,11 @@ module.exports.buscarPostPorId = function(req, res){
 }
 
 module.exports.inserirPost = function(req, res){
-    let post = req.body;
-    let promisse = Post.create(post);
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_user_logado = paypload.id;
+
+    let promisse = Post.create({texto: req.body.texto, likes: req.body.likes, id_usuario: id_user_logado});
 
     promisse.then(function(post){
         res.status(201).json(viewPost.render(post));
@@ -35,9 +39,17 @@ module.exports.inserirPost = function(req, res){
 
 module.exports.removerPost = function(req, res){
     let id = req.params.id;
-    let promise = Post.findByIdAndDelete(id);
-    promise.then(function(){
-        res.status(200).json({mensagem: "Post deletado com sucesso!"});
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_user_logado = paypload.id;
+
+    let promise = Post.findOneAndDelete({_id: id, id_usuario: id_user_logado});
+    promise.then(function(post){
+        if(post == null){
+            res.status(400).json({mensagem: "Erro!"});    
+        } else{
+            res.status(200).json({mensagem: "Post deletado com sucesso!"});
+        }
     }).catch(function(error){
         res.status(400).json({mensagem: "Erro!"});
     })

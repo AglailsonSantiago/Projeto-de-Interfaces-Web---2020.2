@@ -1,7 +1,6 @@
 const Comentario = require("../models/comentarios");
 const view = require("../views/comentarios");
-
-let comentarios = [];
+const jwt = require("jsonwebtoken");
 
 module.exports.listarComentarios = function(req, res){
     let promisse = Comentario.find().exec();
@@ -23,8 +22,11 @@ module.exports.buscarComentarioPorId = function(req, res){
 }
 
 module.exports.inserirComentario = function(req, res){
-    let comentario = req.body;
-    let promisse = Comentario.create(comentario);
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_user_logado = paypload.id;
+
+    let promisse = Comentario.create({texto: req.body.texto, id_post: req.body.id_post, id_usuario: id_user_logado});
 
     promisse.then(function(comentario){
         res.status(201).json(view.render(comentario));
@@ -35,9 +37,17 @@ module.exports.inserirComentario = function(req, res){
 
 module.exports.removerComentario = function(req, res){
     let id = req.params.id;
-    let promisse = Comentario.findByIdAndDelete(id);
-    promisse.then(function(){
-        res.status(200).json({mensagem: "Comentário deletado com sucesso!"});
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_user_logado = paypload.id;
+
+    let promisse = Comentario.findOneAndDelete({_id: id, id_usuario: id_user_logado});
+    promisse.then(function(comentario){
+       if(comentario == null){
+        res.status(400).json({mensagem: "Erro!"});
+       } else{
+           res.status(200).json({mensagem: "Comentário deletado!"});
+       }
     }).catch(function(error){
         res.status(400).json({mensagem: "Erro!"});
     })

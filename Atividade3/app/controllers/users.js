@@ -2,6 +2,8 @@ const Usuario = require("../models/users");
 const Post = require("../models/posts");
 const userView = require("../views/users");
 const postsView = require("../views/posts");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports.listarUsers = function(req, res){
     let promisse = Usuario.find().exec();
@@ -23,7 +25,11 @@ module.exports.buscarUserPorId = function(req, res){
 }
 
 module.exports.inserirUser = function(req, res){
-    let user = req.body;
+    let user = {
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: bcrypt.hashSync(req.body.senha, 10),
+    }
     let promisse = Usuario.create(user);
 
     promisse.then(function(user){
@@ -35,12 +41,23 @@ module.exports.inserirUser = function(req, res){
 
 module.exports.removerUser = function(req, res){
     let id = req.params.id;
-    let promisse = Usuario.findByIdAndDelete(id);
-    promisse.then(function(){
-        res.status(200).json({mensagem: "Usuário deletado com sucesso!"});
-    }).catch(function(error){
-        res.status(400).json({mensagem: "Usuário não encontrado!"});
-    })
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_user_logado = paypload.id;
+
+    if(id != id_user_logado){
+        res.status(400).json({mensagem: "erro, sem permissão!"});
+    } else{
+
+        let promisse = Usuario.findByIdAndDelete(id_user_logado);
+        promisse.then(function(){
+
+            res.status(200).json({mensagem: "deletado!"});
+            
+        }).catch(function(error){
+            res.status(400).json({mensagem: "erro!"});
+        })
+    }
 }
 
 module.exports.obterPosts = function(req, res){
