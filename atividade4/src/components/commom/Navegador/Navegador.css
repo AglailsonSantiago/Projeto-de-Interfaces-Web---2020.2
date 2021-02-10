@@ -1,0 +1,86 @@
+.navegador{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(5, 75, 69);
+}
+
+.navegador .logo{
+    display: flex;
+    padding: 15px;
+    margin-right: auto;
+    text-decoration: none;
+    color: white;
+    font-family: fantasy;
+}
+
+.navegador .logo div{
+    
+    animation-name: move-animacao;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move-animacao{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.navegador .logo h2{
+    text-shadow: black 0.3em 0.1em 0.1em;
+}
+
+.navegador .botao-feed{
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navegador .botao-feed:hover{
+    color: black;
+    background-color: white;
+}
+
+.navegador .botao-perfil{
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navegador .botao-perfil:hover{
+    color: black;
+    background-color: white;
+}
+
+.navegador .botao-logout{
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navegador .botao-logout:hover{
+    color: black;
+    background-color: white;
+}
