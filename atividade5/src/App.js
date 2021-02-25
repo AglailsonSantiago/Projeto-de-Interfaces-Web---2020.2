@@ -1,7 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import { PaginaPrincipal } from './components/pages/PaginaPrincipal/PaginaPrincipal';
-import { PaginaPosts } from './components/pages/PaginaPosts/PaginaPosts';
+import { PaginaPost } from './components/pages/PaginaPost/PaginaPost';
 
 function App() {
   return (
@@ -9,8 +9,8 @@ function App() {
       <Route exact path="/">
         <PaginaPrincipal></PaginaPrincipal>
       </Route>
-      <Route path="/posts">
-        <PaginaPosts></PaginaPosts>
+      <Route path="/post">
+        <PaginaPost></PaginaPost>
       </Route>
     </BrowserRouter>
       
