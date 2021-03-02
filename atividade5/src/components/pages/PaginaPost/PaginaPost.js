@@ -1,5 +1,5 @@
 import { Navegador } from "../../commom/Navegador/Navegador";
-import { FormPostar } from "../../commom/FormPostar/FormPostar";
+import { FormPostar } from "./FormPostar/FormPostar";
 import "./PaginaPost.css"
 
 export function PaginaPost(){

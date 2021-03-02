@@ -1,10 +1,24 @@
 .post{
     width: 700px;
+    padding-bottom: 20px;
 
     background-color: rgb(238, 225, 225);
     
     margin: 20px;
 
+    border-top: 1.5px solid rgb(0, 0, 0);
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post .conteudo{
+    margin: 30px;
+    background-color: rgb(255, 255, 255);
     border-top: 1.5px solid rgb(0, 0, 0);
     border-bottom: 1.5px solid rgb(0, 0, 0);
     box-shadow: 0px 0px 5px rgb(0, 0, 0);
@@ -24,7 +38,7 @@
 
 .post .texto {
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 20px;
 }
 
@@ -45,4 +59,53 @@
 .post .caixa-likes button{
     cursor: pointer;
     font-size: 1.2rem;
+}
+
+.post .container-comentarios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post .container-comentarios .list-comentarios{
+    width: 650px;
+}
+
+.post .container-comentarios .list-comentarios .comentario{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+    border-top: 1.5px solid rgb(0, 0, 0);
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.post .container-comentarios .list-comentarios .comentario .user-comentario{
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.post .container-comentarios .list-comentarios .comentario .texto-comentario{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.post .container-comentarios .list-comentarios .comentar{
+    margin: 10px;
+}
+
+.post .container-comentarios .list-comentarios .comentar .comentar-texto{
+    width: 83%;
+    height: 30px;
+    font-size: 1.3rem;
+}
+
+.post .container-comentarios .list-comentarios .comentar .comentar-botao{
+    height: 30px;
+    margin-left: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
