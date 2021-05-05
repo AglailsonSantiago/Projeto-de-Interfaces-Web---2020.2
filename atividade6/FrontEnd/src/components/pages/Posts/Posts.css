@@ -1,0 +1,113 @@
+.post{
+    width: 700px;
+    height: auto;
+    padding-bottom: 20px;
+
+    background-color: rgb(238, 225, 225);
+    
+    margin: 20px;
+
+    border-top: 1.5px solid rgb(0, 0, 0);
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.post .conteudo{
+    margin: 30px;
+    background-color: rgb(255, 255, 255);
+    border-top: 1.5px solid rgb(0, 0, 0);
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post .conteudo .user{
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.post .conteudo .texto {
+    text-align: justify;
+    font-size: 1.3rem;
+    padding: 20px;
+}
+
+.post .conteudo .caixa-likes{
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-size: 1.2rem;
+}
+
+.post .conteudo .caixa-likes img{
+    height: 30px;
+    width: 30px;
+}
+
+.post .conteudo .caixa-likes button{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+
+
+.post .container-comentarios{
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post .container-comentarios .list-comentarios{
+    align-items: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-top: 1.5px solid rgb(0, 0, 0);
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.post .container-comentarios .list-comentarios .user-comentario{
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.post .container-comentarios .list-comentarios .texto-comentario{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.comentar{
+    margin: 10px;
+}
+
+.comentar .comentar-texto{
+    width: 83%;
+    height: 30px;
+    font-size: 1.3rem;
+}
+
+.comentar .comentar-botao{
+    height: 30px;
+    margin-left: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}

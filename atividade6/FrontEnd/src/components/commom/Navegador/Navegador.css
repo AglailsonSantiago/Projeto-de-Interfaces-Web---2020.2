@@ -1,0 +1,63 @@
+.navegador{
+    height: 40px;
+    width: 700px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    border-top: 1.5px solid rgb(255, 255, 255);
+    border-bottom: 1.5px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+
+.navegador .logo{
+    display: flex;
+    padding: 15px;
+    margin-right: auto;
+    text-decoration: none;
+    color: white;
+    font-family: fantasy;
+}
+
+.navegador .logo div{
+    
+    animation-name: move-animacao;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move-animacao{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.navegador .logo h2{
+    text-shadow: black 0.3em 0.1em 0.1em;
+}
+
+.navegador .botao-nav{
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.navegador .botao-nav:hover{
+    color: black;
+    background-color: white;
+    border: 0;
+}
+
+.navegador .botao-nav.active{
+    background-color: rgb(47, 93, 161);
+}
